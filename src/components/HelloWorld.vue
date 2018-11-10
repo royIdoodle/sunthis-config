@@ -40,10 +40,8 @@
 
     <el-form-item label="分享渠道">
       <el-checkbox-group v-model="form.networks">
-        <el-checkbox label="wechat" name="type">微信</el-checkbox>
-        <el-checkbox label="linkedin" name="type">linkedIn</el-checkbox>
-        <el-checkbox label="messenger" name="type">messenger</el-checkbox>
-        <el-checkbox label="twitter" name="type">twitter</el-checkbox>
+        <el-checkbox v-for="(item, idx) in networks" :key="idx"
+                     :label="item" name="type"></el-checkbox>
       </el-checkbox-group>
     </el-form-item>
     <el-form-item label="当前id">
@@ -59,12 +57,19 @@
 <script>
   // const urlPrefix = 'http://localhost:3000'
   const urlPrefix ='https://mmd.wangchong.tech'
+  const networks = ['wechat', 'weibo','facebook','twitter',
+    'blogger', 'delicious', 'digg', 'email',  'flipboard', 'google', 'linkedin',
+    'livejournal', 'mailru', 'meneame', 'messenger', 'oknoklassniki', 'pinterest', 'print',
+    'reddit', 'sharethis', 'sms', 'stumbleupon', 'tumblr',   'vk',
+    'whatsapp', 'xing'
+  ]
 import axios from 'axios'
   //'wechat', 'linkedin', 'messenger', 'twitter'
   export default {
     data() {
       return {
         id: '',
+        networks: networks,
         form: {
           style: 'inline',
           image: '',
@@ -72,7 +77,7 @@ import axios from 'axios'
           alignmentSticky: 'sticky',
           title: '',
           description: '',
-          networks: [],
+          networks: ['wechat', 'weibo','facebook','twitter'],
           url: ''
         }
       }
