@@ -67,7 +67,7 @@
       <el-switch v-model="form.enabled"></el-switch>
     </el-form-item>
 
-    <el-form-item label="字号 radius">
+    <el-form-item label="字号 fontSize">
       <el-input type="number" v-model="form.fontSize"></el-input>
     </el-form-item>
 
